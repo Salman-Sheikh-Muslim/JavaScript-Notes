@@ -1,0 +1,57 @@
+What can you build with JavaScript?
+
+-Web & Mobile Apps
+-Real-Time Networking Applications
+-Command Line Tools
+-Games
+
+What is Node?
+
+-Node is a C++ program. In 2009 a very clever engineer Brian Doll took the opensource
+-JavaScript Engine in Chrome and embedded it inside a C++ program. He called that
+-progran Node.
+
+-With Node we can run JavaScript code outside of the browser, so we can pass our 
+-JavaScript code to Node for execution. This means with JavaScript we can build
+-the back-ed for our web and mobile applications.
+
+Whay is the difference between JavaScript and ECMA Script?
+
+-ECMA Script is just a specification.
+-JavaScript is a programming language that confirms to this specification.
+
+-In 1997 v1 of ECMA Script was released and in 2015 ES205/ES6 was released which
+-introduced a lot of new features.
+
+Why is it best to add <script></script> tag at the end of the body element?
+
+-Reasons:
+    The browser parses the file from top to bottom. If you add the script tag of
+    your JavaScript in the header your broswer might become busy parasing and 
+    executing the JavaScript code and it will not be able to render the content
+    of the page. This will create a bad user experience. The user looks at the
+    web page and it might be white or blank as your browser is busy executing the 
+    JavaScript code.
+
+    Almost always the code that we have needs to talk to the elements on the web page.
+    By adding the script tag at the end of the body element we can be sure that the 
+    code will work on all the web page elements.
+
+    Exception, Sometimes you need to use third-party code that needs to be used in the 
+    head section.
+
+What to explain in comments?
+
+    Explain the Why's and How's in the comments.
+
+What role does HTML, CSS and JavaScript play respectively in a Web page?
+
+    HTML is all about the content on the web page.
+    CSS is all about styling the web page.
+    JavaScript is all about managing the behaviour of elements on the web page.
+
+What to do if your object has some logic?
+
+    If an oject contains some logic we use factoring or constructor functions
+    instead of object literals.
+    

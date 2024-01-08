@@ -1,0 +1,43 @@
+Objects in JavaScript are dynamic in nature.
+
+Best Practice is to use For...in loop for itetrating 
+over the properties of an object.
+
+Best Practice is to use For...of loop for itetrating 
+over the elements of an Array.
+
+Every object in JavaScript has a property called constructor.
+The constructor refrence the that was used to create or constructorthat object.
+
+JavaScript has built-in constructor functions for
+Object(), String(), Boolean(), Number()
+
+
+Primitives are copied by their value. Objects are copied by their reference.
+
+The for...of loop can only be used with iterables such as arrays and maps.
+
+if('radius' in pie) console.log('yes'); //With the help of in operator you can 
+verify if an object contains a specific property.
+
+In low level languages such as C++ you need allocate memory when defineing
+an object and deallocate the memory when you are done using that object. In
+JacaScript we do not have to worry about this.
+Memory allocation and deallocation is automatically done in JavaScript.
+When we create an object in JacaScript it automatically allocates memory to 
+it and when we are done using that oject the memory is deallocated automatically.
+JavaScript Engine has a Garbage Collector its job is to find variables and const
+that are no longer being used and deallocate memory from them that was allocated
+to them earlier.
+
+Shift + Alt + Down-Arrow //Copy the Existing Line
+
+Alt + Up/Down-Arrow //Moving the Existing Line
+
+Press F2 to change the name of a variable in the whole file.
+
+whenever you see ? in the parameter of a built-in method or function
+it means that the following parameter is optional.
+
+Enable Multi Cursor Editing. Select what you want to edit.
+Than press Control + D.
