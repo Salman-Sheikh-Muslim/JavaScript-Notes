@@ -322,4 +322,148 @@ coursess2.sort(function(a, b) {
     console.log(coursess2); //Shows [ { id: 2, name: 'javaScript' }, { id: 1, name: 'Node.js' } ]
 
 
-//-------------------Sorting Arrays-----------------------------
+//-------------------Arrays - Every and Some Method-----------------------------
+
+const numbersss = [1, 1, 2, 3];
+/* 
+every() - checks if all elements meet the condition within the array.
+If even a single element result in condition being false it stop traversing
+the rest of the array and returns false.
+
+some() - checks if even a single elment within the array satifies the conditon;
+as soon as that element is found it stops traversing the rest of the array.
+*/
+
+const allPositive = numbersss.every(function(value){
+    return value >= 0; });
+console.log(allPositive);
+
+const atleastOnePositive = numbersss.some(function(value){
+     return value >= 0; });
+console.log(atleastOnePositive);
+
+
+//-------------------Arrays - Filteting Arrays by using filter()-----------------------------
+
+/*
+The filter() method traves an array and looks for elements that are valid
+for a specific search condition. It check each element one by one and adds
+the elements that satisfy rhe search criteria into a new array. 
+
+The filter() method traverses the whole array regardless of the outcome.
+*/
+const numbers6 = [1, -1, 2, 3];
+const filtered = numbers6.filter(value => value >= 0);
+console.log(filtered);
+
+/*
+In real we mostly deal with arrays filled with objects for example:
+Consider you have an array containing objects of restuarants. Each
+resturant object has a property of working_hours.
+
+You need to apply a filter to check which restuarnats are currently open.
+*/
+
+
+//-------------------Arrays - Mapping Array or array elements by using map() method-----------------------------
+
+//Primitive Types
+const numbersa = [1, -1, 2, 3];
+const filteredd = numbersa.filter(n => n >= 0); 
+const items = filteredd.map(n => '<li>' + n + '</li>')
+
+const html = '<ul>' + items.join('') + '</ul>'; //By efault join() uses comma as a searator
+
+console.log(html); //Shows <ul><li>1</li><li>2</li><li>3</li></ul>
+
+//Refrence Types
+const itemsObj = filteredd.map(n =>{ //Very useful for building real-world applications
+    const obj = {value: n};
+    return obj;
+});
+
+console.log(itemsObj); //Shows [ { value: 1 }, { value: 2 }, { value: 3 } ]
+
+const itemsObj1 = filteredd.map(n =>{ 
+    return {value: n}; 
+});
+
+console.log(itemsObj1); //Shows [ { value: 1 }, { value: 2 }, { value: 3 } ]
+
+/*
+const itemsObj2 = filteredd.map(n => ({value: n}) );
+
+When using oject/refrence type in map() method and you only have 
+1 line of code to execute such as '{value: n}' using it in the arrow
+function will not work corectly beacuse instead of thinking its an object
+the JavaScript engine will assume that the curly brackets represent a code block
+so in order to avois that you need to add () parenthesis around the curly brackets
+'({value: n})'.
+*/
+
+const itemsObj2 = filteredd.map(n => ({value: n}) );
+
+console.log(itemsObj2); //Shows [ { value: 1 }, { value: 2 }, { value: 3 } ]
+
+
+/*
+The filter() and map() method do not modify the original array.
+These methods are chainable meaning we can call them one after another,
+*/
+
+//Chaining filter() and map() method
+
+const numbersb = [1, -1, 2, 3];
+
+const chain = numbersb
+    .filter(n => n >= 0)  
+    .map(n => ({value: n}))
+    .filter(obj => obj.value > 1)
+    .map(obj => obj.value); //When Chaining its a convention to use each method on new line.
+
+console.log(chain); //Shows [ 2, 3 ]
+
+
+//-------------------Arrays - reduce() method - reducing-----------------------------
+
+const numbersRed = [1, -1, 2, 3];
+let sum = 0;
+
+for (let n of numbersRed)
+    sum += n;
+
+console.log(sum);
+
+/*
+reduce() method reduces all the elements into a single element.
+The reuturned element can be of any type it can be a number, string, object etc.
+
+It adds elements 1 by 1. It has a accumulator argument and currentValue argument.
+The accumulator by default has the value of the 0 index.
+The currentValue has the value of 1st index.
+
+If you set accumulator to value 0 than currentValue has the value of 0 index.
+*/
+
+// a = 0 , c = 1 => a = 1
+// a = 1 , c = - 1 => a = 0
+// a = 0 c = 2 => a = 2
+// a = 2 c = 3 => a = 5
+const sum1 = numbersRed.reduce((accumulator, currentValue) => {
+return accumulator + currentValue;
+}, 0);
+
+console.log(sum1);
+
+// a = 1 , c = - 1 => a = 0
+// a = 0 c =2 Rightarrow a = 2
+// a = 2 c = 3 => a = 5
+const sum2 = numbersRed.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+    });
+
+console.log(sum2);
+
+const sum3 = numbersRed.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+console.log(sum3);
