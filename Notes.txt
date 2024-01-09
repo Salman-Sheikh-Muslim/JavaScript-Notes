@@ -30,14 +30,57 @@ JavaScript Engine has a Garbage Collector its job is to find variables and const
 that are no longer being used and deallocate memory from them that was allocated
 to them earlier.
 
+whenever you see ? in the parameter of a built-in method or function
+it means that the following parameter is optional.
+
+Anytime you have an array of values and you want to get a single value as a 
+result of iterating that array think of the reduce() method.
+
+If you are dealing with an array that contains objects with same properties 
+than you can use filter() method as the filter method would handle each object
+separetly one by one.
+
+Methods are chainable.
+
+The sort() method by default only works for numbers and strings. 
+The comparison function needs to be added for it to work with objects.
+sort() method returns values in an ascending order.
+
+We can call a Function that is defined by using the Function Declaration Syntax before its defination.
+We cannot call a Function that is defined by using the Function Expression Syntax before its defination.
+
+When our JavaScript Engine executes the code it moves all the Function Declarations to the top and this
+is called Hoisting.
+
+Hoisitng is the process of moving Function Declarations to the top of the file. 
+This is done automatically by the JavaScript Engine that is executeing this code.
+
+For...of loop can be used with objects that have an iterator. The plain objectsthat are
+created by using object literals do not have an iterator.
+
+Every function in JavaScript has a special object called arguments.
+It kind of looks like an array but its not am array its an oject.
+The keys we have in this object are the indexes of the arguments
+that we passed inside the function.
+The argument object has an iterator meaning it caan be used with for...of loop.
+
+In JacaScript if you want to have a function with varying numbers
+of parameters you can use the Rest operator.
+
+The rest and spread operator both have the ... 3 dots symbol.
+The spread operator is used with arrays.
+The rest operator is used in function arguments and it must be 
+the last argument in the function.
+
+We can use the logical OR operator to assign a default value to a variable 
+or an argument.
+let a = a || 5;
+
 Shift + Alt + Down-Arrow //Copy the Existing Line
 
 Alt + Up/Down-Arrow //Moving the Existing Line
 
 Press F2 to change the name of a variable in the whole file.
-
-whenever you see ? in the parameter of a built-in method or function
-it means that the following parameter is optional.
 
 Enable Multi Cursor Editing. Select what you want to edit.
 Than press Control + D.

@@ -512,3 +512,337 @@ let priceRanges = [
 let restaurants = [
     { averagePerPerson: 5 }
     ]
+
+//-------------------Creating an Array within a Specific Range----------------------------
+
+function arrayFromRange(min, max){
+  let array = [];
+  for(let i=min; i<=max; i++){
+    array.push(i);
+  }
+  return array;
+}
+
+console.log(arrayFromRange(-10, -4));
+console.log(arrayFromRange(10, 21));
+//console.log(arrayFromRange(10, 8)); //Gives an empty array if min is greater than max
+
+//-------------------Creating a Includes Function ----------------------------
+
+
+function check(array, searchElement){
+    let elementExsist = false;
+    for(let index of array){
+    //for(let index=0; index<=array.length; index++){
+    //    if(array[index] === searchElement){
+     //   console.log(index);
+        if(index === searchElement){
+            elementExsist = true;
+            return elementExsist;
+        }
+        
+    }
+    return elementExsist;
+}
+
+const num = [1,2,3, 'hi', false];
+console.log(check(num, 1));
+console.log(check(num, 4));
+console.log(check(num, 'hi'));
+console.log(check(num, false));
+
+function includesCheck (array, searchElement) {
+    for (let element of array){
+    //console.log(element);
+    if (element === searchElement)
+        return true;
+    }
+    return false;
+    }
+
+console.log(includesCheck(num, 1));
+console.log(includesCheck(num, 4));
+console.log(includesCheck(num, 'hi'));
+console.log(includesCheck(num, false));
+
+
+//-------------------Creating a Except Value in An Array Function ----------------------------
+
+
+function except(array, excluded){
+   // let filtered = array;
+   let filtered = [...array];
+        //console.log(filtered === array)
+        for(let index of excluded){
+            filtered = filtered.filter(value => value !== index);
+        }
+
+    return filtered;
+}
+
+let array1 = [1,2,3,4,5,1];
+console.log(except(array1, [1,2]));
+console.log(array1);
+
+
+//Another Way
+
+function except (array, excluded) {
+    const output = [];
+
+    for (let element of array)
+        if (!excluded.includes (element)) 
+            output.push(element);
+    return output;
+}
+
+
+//-------------------Swappind and Moving Elements in An Array Function ----------------------------
+
+//Swapping Array Elements.
+
+console.log(typeof array1);
+
+
+function swappingElements(array, index, offset){
+
+    if (index < 0 || index >= array.length || index + offset < 0 || index + offset >= array.length) {
+        console.error("Invalid indices or offset");
+        return "Nothing Happened";
+    }
+
+    let copyArray = [...array];    
+    let temp = copyArray[index];
+    //let offsetVal = copyArray[index + offset];
+    //console.log(copyArray[index+1]);
+    copyArray[index] = copyArray[index + offset];
+   // copyArray[index] = offsetVal;
+    copyArray[index + offset] = temp;
+
+    return copyArray;
+}
+
+let numArray = [1,2,3,4,5,6,7,8,'hi', true, null, 0]; //length = 11
+console.log(swappingElements(numArray,3,7));
+console.log(swappingElements(numArray,3,-2));
+console.log(swappingElements(numArray,11,-1));
+console.log(swappingElements(numArray,11,-12)); //Invalid input data
+console.log(swappingElements(numArray,5,7)); //Invalid input data
+
+console.log(numArray);
+
+
+//Moving a Element in an Array.
+
+
+const numbers = [1, 2, 3, 4];
+const outputs = move(numbers, 1, 2);
+
+console.log(outputs);
+
+function move(array, index, offset) {
+const position = index + offset;
+
+if (position >= array.length || position < 0) { 
+    console.error('Invalid offset.');
+return;
+}
+
+const outputs = [...array];
+const element = outputs.splice(index, 1)[0];
+outputs.splice(position, 0, element);
+return outputs;
+}
+
+
+//foreach valuee === value
+
+
+//-------------------Function - Checking How many times a value has appeared in the array----------------------------
+
+//function created using forEach()
+function countOccurences(array, searchElement){
+    let copyArray = [...array];
+    let count = 0;
+    copyArray.forEach(function(value) { 
+        if(value === searchElement)
+            count += 1;
+    }); 
+
+    if(count === 0)
+        return 'Not in the Array';
+
+    return count;
+}
+
+
+//function created using reduce()
+function countOccurencesReduce(array, searchElement){
+    let copyArray = [...array];
+    let counting = copyArray.reduce((count, element) => { 
+        if(element === searchElement){
+            count += 1;}
+           return count;
+    }, 0); 
+
+     if(counting === 0)
+         return 'Not in the Array';
+
+    return counting;
+}
+
+let arrayNum = [1,2,3,4,5,1,1,2, true, 'h', 'h', 3];
+
+let appeared = countOccurences(arrayNum, 1);
+console.log(appeared);
+
+let appearedd = countOccurencesReduce(arrayNum, 1);
+console.log(appearedd);
+
+//Another Way 
+
+const numberss = [1, 2, 3, 4, 1];
+
+const count = countOccurrences(numberss, 1);
+console.log(count);
+
+function countOccurrences (array, searchElement) {
+// let count = 0;
+// for (let element of array)
+// if (element searchElement)
+//count++;
+// return count;
+return array.reduce((accumulator, current) => {
+const occurrence = (current == searchElement) ? 1 : 0;
+//console.log(accumulator, current, searchElemet);
+return accumulator + occurrence;
+},0);
+}
+
+
+//-------------------Function - Get Max Element from the array.----------------------------
+
+const numberssA = [1, 2, 5, 3, 4, 9];
+
+const max = maxNumber(numberssA);
+console.log(max);
+
+function maxNumber (array) {
+
+    if(array.length === 0) return undefined;
+
+ let max = array.reduce((max, current) => {
+    console.log( max, current);
+
+    let maximum = (max >= current) ? max : current;
+    return maximum;
+},0);
+
+return max;
+}
+
+//Another Way
+
+const numbersA = [1, 2, 3, 4];
+const maxx = getMax(numbersA);
+
+console.log(maxx);
+
+function getMax(array) {
+
+if (array.length === 0) return undefined;
+
+// let max = array[0];
+
+// for (let i = 1; i < array.length; i++)
+//     if (array[i] > max)
+//         max = array[i];
+// return max;
+
+//---------
+
+// return array.reduce((accumulator, current) => {
+//     return (current > accumulator) ? current: accumulator;
+//     });
+
+return array.reduce((a, b) => (a > b) ? a : b);
+
+}
+
+
+//-------------------Function - Filter Movies-----------------------------
+
+
+const movies = [
+    { title: 'a', year: 2018, rating: 4.5 },
+    { title: 'b', year: 2018, rating: 4.7 },
+    { title: 'c', year: 2018, rating: 3 },
+    { title: 'd', year: 2017, rating: 4.5 },
+    ];
+    // All the movies in 2018 with rating > 4
+    // Sort them by their rating
+    // Descending order
+    // Pick their title
+
+function sortingFunc(array, prop, order){
+    let copyArray = [...array];
+    copyArray.sort(function(a, b) { 
+        // a < b => return -1 
+        // a > b => return 1
+        // a === b => return 0
+        if(order === 'a'){
+        if (a[prop] < b[prop]) return -1;  // a should come before b
+        if (a[prop] > b[prop]) return 1;   // a should come after b
+        return 0; //Order remains Unchanged
+        }
+
+        if(order === 'd'){ //Descending
+            if (a[prop] < b[prop]) return 1;  // a should come after b
+            if (a[prop] > b[prop]) return -1;  // a should come before b
+            return 0; //Order remains Unchanged
+            }
+        });
+        return copyArray;
+    }
+
+    let startsWithLetter = '';
+let Sorted_Filtered = (sortingFunc(movies, 'rating', 'd')).filter(function(movie) {
+    return (movie.year === 2018 && movie.rating > 4) && (startsWithLetter ? movie.title.toLowerCase().startsWith(startsWithLetter.toLowerCase()) : true);
+});
+
+console.log(Sorted_Filtered);
+console.log(movies);
+
+//Another Way - More effiecient and Easy
+
+// All the movies in 2018 with rating > 4
+// Sort them by their rating
+// Descending order
+// Pick their title
+
+const titles = movies
+.filter(m => m.year === 2018 && m. rating >= 4)
+.sort((a, b) => a.rating - b.rating)
+.reverse()
+.map(m => m.title)
+console.log(titles);
+
+/*
+.sort((a, b) => a.rating - b.rating)
+
+a=4.5
+b=4
+
+0.5 => a > b
+
+a=4
+b=4.5
+
+-0.5 => a < b
+
+a=4
+b=4
+
+0 => a === b
+
+*/

@@ -435,6 +435,7 @@ for (let n of numbersRed)
 console.log(sum);
 
 /*
+It does not modify the oeiginal array.
 reduce() method reduces all the elements into a single element.
 The reuturned element can be of any type it can be a number, string, object etc.
 
@@ -443,6 +444,9 @@ The accumulator by default has the value of the 0 index.
 The currentValue has the value of 1st index.
 
 If you set accumulator to value 0 than currentValue has the value of 0 index.
+
+Anytime you have an array of values and you want to get a single value as a 
+result of iterating that array think of the reduce() method.
 */
 
 // a = 0 , c = 1 => a = 1
@@ -467,3 +471,5 @@ console.log(sum2);
 const sum3 = numbersRed.reduce((accumulator, currentValue) => accumulator + currentValue);
 
 console.log(sum3);
+
+
