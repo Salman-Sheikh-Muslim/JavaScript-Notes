@@ -71,10 +71,30 @@ The rest and spread operator both have the ... 3 dots symbol.
 The spread operator is used with arrays.
 The rest operator is used in function arguments and it must be 
 the last argument in the function.
+The rest operator puts all the parameters into an array.
 
 We can use the logical OR operator to assign a default value to a variable 
 or an argument.
 let a = a || 5;
+
+When we define a function that function is technically a global function
+and is added to the window object.
+function hello(){
+    console.log('hi');
+}
+window.hello();
+This is bad practice. You can avoid this by encapsulationg the functions in
+separte modules (so that the functions are not added into the window object).
+
+forEach method has 2 arguments. First argument is a callback function. Second
+argument is thisArg (We can pass a new object here and 'this'in the callback
+function will refer to that object). We can also pass 'this' in the argument so 
+that the 'this' in callback function can alo point to the object.
+
+By default, when you define a property in an object literal, it is created
+with a default getter, but not a setter. If you only define a value for the 
+property, it will have a default getter. However, if you want to explicitly 
+provide a getter or setter, you can do so using the 'get' and 'set' syntax.
 
 Shift + Alt + Down-Arrow //Copy the Existing Line
 

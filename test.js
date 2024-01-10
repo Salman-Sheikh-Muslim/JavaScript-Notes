@@ -24,3 +24,6 @@ for(let key in person){
 }
 
 console.log(typeof 'sal');
+
+var color = 5; 
+//console.log(window.globals);

@@ -696,8 +696,8 @@ let arrayNum = [1,2,3,4,5,1,1,2, true, 'h', 'h', 3];
 let appeared = countOccurences(arrayNum, 1);
 console.log(appeared);
 
-let appearedd = countOccurencesReduce(arrayNum, 1);
-console.log(appearedd);
+let appearedd = countOccurencesReduce(arrayNum, true);
+console.log("reduce:" + appearedd);
 
 //Another Way 
 
@@ -846,3 +846,114 @@ b=4
 0 => a === b
 
 */
+
+//-------------------Function - Sum-----------------------------
+
+function sum(args, ...argss) {
+    if (Array.isArray(args)) {
+        return args.reduce((a, b) => a + b, 0);
+    }
+
+    const allNumbers = [args, ...argss].filter(value => typeof value === 'number');
+
+    return allNumbers.reduce((a, b) => a + b, 0);
+}
+
+console.log(sum([1, 2])); // Output: 3
+console.log(sum(1, 2, 3, 4)); // Output: 10
+
+
+function sum2(...args) {
+    console.log(args);
+    return args.reduce((a,b) => a + b);
+   // console.log(args);
+    }
+    console.log(sum2(1, 2, 3, 4, 5, 10));
+
+
+    function sum3(args, ...argss) {
+        if(Array.isArray(args)) {
+            return args.reduce((a, b) => a + b, 0);
+        }
+    
+
+            return ((argss.reduce((a, b) => a + b, 0)) + args);
+        
+    }
+
+    console.log(sum3(1, 2));
+
+
+//Another Way
+
+console.log(sum4(1, 2, 3, 4));
+
+function sum4(...items) {
+if (items.length === 1 && Array.isArray(items[0]))
+items = [...items[0]];
+return items.reduce((a, b) => a + b);
+}
+
+
+//-------------------Getter and Setter - Circle radius-----------------------------
+
+let circle = {
+    radius: 5,
+    get Radius(){
+        return circle.radius;
+    },
+    set Radius(value){
+        this.radius = value; // Same as circle.radius = value;
+    },
+};
+
+circle.radius = 24;
+console.log(circle.radius);
+
+// Another Way
+
+const circle1 = {
+    radius: 1,
+    get area() {
+    return Math.PI * this.radius * this.radius;
+    }
+    };
+
+    console.log(circle1.area);
+    circle1.radius = 2;
+    console.log(circle1.area);
+    console.log(circle1.radius);
+
+
+//-------------------try and catch-----------------------------
+
+
+    function countOccurencesReduce1(array, searchElement){
+
+        if(Array.isArray(array) === false){
+            let e = new Error('Invalid Array');
+            throw e;
+        }
+
+        let copyArray = [...array];
+        let counting = copyArray.reduce((count, element) => { 
+            if(element === searchElement){
+                count += 1;}
+               return count;
+        }, 0); 
+    
+         if(counting === 0)
+             return 'Not in the Array';
+    
+        return counting;
+    }
+    
+    let arrayNum1 = [1,2,3,4,5,1,1,2, true, 'h', 'h', 3];
+
+    try{
+    let appearedd1 = countOccurencesReduce1(true, true);
+    console.log(appearedd1);
+    }
+    catch(e){
+        console.log(e.message);
+    }
