@@ -104,3 +104,16 @@ Press F2 to change the name of a variable in the whole file.
 
 Enable Multi Cursor Editing. Select what you want to edit.
 Than press Control + D.
+
+//--------------------
+
+map() always returns a new array, even if it’s an empty array.
+It doesn’t change the size of the original array compared to the filter method
+It always makes use of the values from your original array when making a new one.
+
+Gotcha: The map method works almost like every other JavaScript iterator such as 
+forEach() but it’s proper to always use the map method whenever you are going to 
+return a value.
+
+One of the key reasons we use map is so we can encapsulate our data in some HTML, 
+whereas for React this is simply done using JSX.

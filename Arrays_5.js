@@ -372,7 +372,7 @@ const numbersa = [1, -1, 2, 3];
 const filteredd = numbersa.filter(n => n >= 0); 
 const items = filteredd.map(n => '<li>' + n + '</li>')
 
-const html = '<ul>' + items.join('') + '</ul>'; //By efault join() uses comma as a searator
+const html = '<ul>' + items.join('') + '</ul>'; //By default join() uses comma as a searator
 
 console.log(html); //Shows <ul><li>1</li><li>2</li><li>3</li></ul>
 

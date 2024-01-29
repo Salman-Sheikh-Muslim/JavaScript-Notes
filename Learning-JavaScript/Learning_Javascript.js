@@ -231,7 +231,7 @@ just that the individual characters of a string literal cannot be changed.
 */
 var text = "Jelllo World";
 
-text[0] = "H"; // Logical Error The line will w=execute however it will not change the string.
+text[0] = "H"; // Logical Error The line will execute however it will not change the string.
 
 /*
 var a = "t";

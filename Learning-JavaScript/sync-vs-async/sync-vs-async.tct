@@ -1,0 +1,38 @@
+read: https://www.freecodecamp.org/news/synchronous-vs-asynchronous-in-javascript/#:~:text=A%20callback%20function%20executes%20when,function%20printMe()%20%7B%20console.
+
+
+Synchronous Programming:
+
+In synchronous programming, tasks are executed sequentially, one after the other.
+Each task must wait for the previous one to complete before starting.
+This can lead to blocking, where the program is held up while waiting for a task to finish.
+
+Asynchronous Programming:
+
+In asynchronous programming, tasks can be initiated without waiting for the previous ones to complete.
+Asynchronous operations allow other tasks to continue while waiting for certain operations to finish.
+Callback functions are often used in asynchronous programming to handle the completion of tasks.
+
+
+In Summary
+To summarize:
+
+    The JavaScript engine uses the stack data structure to keep track of currently 
+    executed functions. The stack is called the function execution stack.
+
+    The function execution stack (aka call stack) executes the functions sequentially, 
+    line-by-line, one-by-one.
+    
+    The browser/web APIs use callback functions to complete the tasks when an 
+    asynchronous operation/delay is done. The callback function is placed in the 
+    callback queue.
+    
+    The promise executor functions are placed in the job queue.
+    
+    For each loop of the event loop, one macro task is completed out of the callback queue.
+    Once that task is complete, the event loop visits the job queue. It completes 
+    all the micro-tasks in the job queue before it looks for the next thing.
+    
+    If both the queues get entries at the same point in time, the job queue 
+    gets preference over the callback queue.
+

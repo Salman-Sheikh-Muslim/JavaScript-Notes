@@ -1,0 +1,34 @@
+/*
+Certainly! Let's break down the definition: "a function which is to be executed 
+after another function has finished execution."
+
+This concept is commonly referred to as a "callback function." The idea is that
+you provide a function (the callback) as an argument to another function. The
+second function then executes its code, and once it's done with its main task,
+it calls the provided callback function.
+*/
+
+// The main function that takes a callback
+function performTask(taskName, callback) {
+  console.log(`Performing task: ${taskName}`);
+  
+  // Simulating some task that takes time (e.g., asynchronous operation)
+  setTimeout(function() {
+    console.log(`Task "${taskName}" completed.`);
+    
+    // Calling the callback function after the main task is done
+    callback();
+  }, 2000); // Simulating a delay of 2 seconds
+
+    console.log("This line should be executed 2")
+}
+
+
+
+// Callback function to be executed after the main task
+function afterTaskCompleted() {
+  console.log("Callback: Additional task after the main task is completed.");
+}
+
+// Using the main function with a callback
+performTask("Example Task", afterTaskCompleted);

@@ -1,0 +1,20 @@
+Parameter:
+
+A parameter is a variable or placeholder in a function or method definition.
+It is a way of defining what kind of information a function will accept when it is called.
+Parameters act as placeholders for the actual values (arguments) that will be provided when the function is invoked.
+
+function exampleFunction(parameter1, parameter2) {
+  // parameter1 and parameter2 are parameters
+  // ...
+}
+
+Argument:
+
+An argument is the actual value that is passed to a function when it is invoked.
+It is the specific input supplied to the function at runtime.
+Arguments are the real data that the function will use during its execution.
+
+
+exampleFunction(argument1, argument2);
+// argument1 and argument2 are arguments
